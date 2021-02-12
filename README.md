@@ -43,5 +43,5 @@ Modelos:<br>
 * Wallet
 
 Abstracto:<br>
-Album --> Genero<br>
-Pay --> Location, DateTime, Feedback.
+* Album --> Genero<br>
+* Pay --> Location, DateTime, Feedback.
