@@ -26,14 +26,12 @@ Endpoints:
 * Enviar rango de colores (rojo - verde) entre mas verde, mejor es la remuneración en dicho lugar u horario.
 * Enviar monto total ganado en dolares.
 
-Modelos:
-
+Modelos:<br>
 * Artista --> Album --> Cancion
 
 * Pay
 * Wallet
 
 Abstracto:
-
-Album --> Genero
+Album --> Genero<br>
 Pay --> Location, DateTime, Feedback.
