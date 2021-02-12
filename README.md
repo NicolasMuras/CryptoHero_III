@@ -19,11 +19,12 @@ Después, el artista solo tiene que descargar una aplicación en su dispositivo 
 Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar pagos criptográficos.
 
 Características de la app:
-* El usuario puede visualizar mediante un gps cuales son los lugares en los que recibe mejor remuneración.
-* Puede visualizar las horas donde la remuneración es mas alta.
-* Puede registrar sus canciones y ver cual es su canción mas exitosa.
-* Podrá ver el monto total ganado en bitcoins
+* Visualizar mediante GPS cuales son los lugares en los que se recibe mejor remuneración.
+* Poder visualizar las horas donde la remuneración es mas alta.
+* Sistema de registro de canciones, ahora podras ver cual es tu canción mas exitosa.
+* Se podra consultar los pagos obtenidos en un log. Ademas de ver la cantidad total de dinero ganado.
 * Oyentes podrán adjuntar con su pago un comentario y otorgar una puntuación.
+* Al seleccionar una canción se mostrara en orden cronologico un listado de comentarios, puntuaciónes y su respectivo pago.
 
 Endpoints:
 * Recibir datos de gps. (x, y)
