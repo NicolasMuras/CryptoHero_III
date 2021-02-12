@@ -1,5 +1,4 @@
-# CryptoHero_III_Leyends_Of_Bitcoin
-RESTful API con Django REST Framework, unit testing con pytest, y diseño y desarrollo de bases de datos con MySQL. Limite de tiempo: 7 Días.
+<h1> CryptoHero III: Leyends Of Bitcoin </h1>
 
 La tecnologia avanza. Estamos en el año 2078.
 El sistema monetario de billetes y monedas se deja de utilizar, ahora los pagos se realizan de forma electronica.
