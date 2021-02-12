@@ -32,6 +32,6 @@ Modelos:<br>
 * Pay
 * Wallet
 
-Abstracto:
+Abstracto:<br>
 Album --> Genero<br>
 Pay --> Location, DateTime, Feedback.
