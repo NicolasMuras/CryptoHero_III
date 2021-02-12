@@ -27,12 +27,13 @@ Endpoints:
 * Enviar monto total ganado en dolares.
 
 Modelos:
+
 * Artista --> Album --> Cancion
 
 * Pay
 * Wallet
 
 Abstracto:
-Album tiene un --> Genero
 
-Pay tiene --> Location, DateTime, Feedback.
+Album --> Genero
+Pay --> Location, DateTime, Feedback.
