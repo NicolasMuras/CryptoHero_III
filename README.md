@@ -20,14 +20,13 @@ Para esto se construye un pedal de guitarra, tiene delay pero también android y
 Después, el artista solo tiene que descargar la aplicación, esta proveera una wallet y algunas funcionalidades.
 Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar pagos en criptomonedas.
 
-Características de la app:
-*Funcion basica: El usuario deberia poder enviar sus datos para registrarse, luego registrar sus canciones, poder ver un listado de sus canciones y elegir cual va a tocar. Cuando una persona le page, junto al pago, se adjuntarian datos de coordenadas, tiempo, fecha y la canción que esta sonando. Internamente se añadiria ese monto a un atributo en un modelo que gestione el dinero recaudado para esa canción. Inmediatamente se puede visualizar en el historial de pagos (pantalla) el pago realizado.
-
-*Mapa: El mapa solicitaria a la API los pagos almacenados, el monto se transformaria en un rango de colores, del rojo al verde, las coordenadas servirian para pintar puntos en el mapa, el verde nos indicaria las zonas en las que el artista recibe mejor remuneración y el rojo lo contrario.
-
-*Registro: En el area del registro se solicitara el listado de albumes asociados a dicho artista, y cada album contendra sus canciónes, al lado de cada canción se podra visualizar la cantidad de dinero ganada por cada una de ellas.
-
-*Grafico: El grafico solicitara el dato de fecha dentro del modulo 'payments', como asi tambien el mismo monto de cada dia, en base a esto se construira un grafico que permitira al artista visualizar su crecimiento economico a lo largo del tiempo.
+<h3>Características de la applicación:</h3>
+<ul>
+<li><strong>Funcion basica: El usuario deberia poder enviar sus datos para registrarse, luego registrar sus canciones, poder ver un listado de sus canciones y elegir cual va a tocar. Cuando una persona le page, junto al pago, se adjuntarian datos de coordenadas, tiempo, fecha y la canción que esta sonando. Internamente se añadiria ese monto a un atributo en un modelo que gestione el dinero recaudado para esa canción. Inmediatamente se puede visualizar en el historial de pagos (pantalla) el pago realizado.</strong></li>
+<li><strong>Mapa: El mapa solicitaria a la API los pagos almacenados, el monto se transformaria en un rango de colores, del rojo al verde, las coordenadas servirian para pintar puntos en el mapa, el verde nos indicaria las zonas en las que el artista recibe mejor remuneración y el rojo lo contrario.</strong></li>
+<li><strong>Registro: En el area del registro se solicitara el listado de albumes asociados a dicho artista, y cada album contendra sus canciónes, al lado de cada canción se podra visualizar la cantidad de dinero ganada por cada una de ellas.</strong></li>
+<li><strong>Grafico: El grafico solicitara el dato de fecha dentro del modulo 'payments', como asi tambien el mismo monto de cada dia, en base a esto se construira un grafico que permitira al artista visualizar su crecimiento economico a lo largo del tiempo.</strong></li>
+</ul>
 
 <h2><a id="user-content-implementación-del-proyecto" class="anchor" aria-hidden="true" href="#implementación-del-proyecto"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementación del proyecto</h2>
 <ul>
