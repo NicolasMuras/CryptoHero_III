@@ -28,7 +28,8 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.artists',
+    'apps.base',
+    'apps.songs',
 ]
 
 THIRD_APPS = [
