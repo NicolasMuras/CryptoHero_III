@@ -30,7 +30,7 @@ class Location(BaseModel):
         verbose_name_plural = 'Localizaciónes'
 
     def __str__(self):
-        return self.x_coord
+        return str(self.x_coord)
 
 class Pay(BaseModel):
 
@@ -58,4 +58,4 @@ class Pay(BaseModel):
         verbose_name_plural = 'Pagos'
 
     def __str__(self):
-        return 'pay_' + self.id
+        return 'pay_' + str(self.id)

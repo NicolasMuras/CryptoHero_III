@@ -3,6 +3,6 @@ from apps.payments.api.views.general_views import LocationListAPIView
 from apps.payments.api.views.payment_views import PayListAPIView
 
 urlpatterns = [
-    path('payments/', PayListAPIView.as_view(), name = 'payments'),
-    path('localtions/', LocationListAPIView.as_view(), name = 'locations'),
+    path('pagos/', PayListAPIView.as_view(), name = 'pagos'),
+    path('locations/', LocationListAPIView.as_view(), name = 'locations'),
 ]

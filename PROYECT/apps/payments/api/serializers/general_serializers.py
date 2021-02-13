@@ -6,7 +6,7 @@ class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         # Data filter:
-        exclude = ('state', 'created_date', 'modified_date', 'deleted_date')
+        exclude = ('state', 'modified_date', 'deleted_date')
 
     def to_representation(self, instance):
 
