@@ -136,3 +136,116 @@ PROYECT
             
 </pre>
 
+<h2><a id="user-content-modelos" class="anchor" aria-hidden="true" href="#modelos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Modelos</h2>
+
+<h3>Artist</h3>
+
+<table>
+  <tbody><tr>
+   <td><strong>Dato</strong>
+   </td>
+   <td><strong>Valor</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>name</strong>
+   </td>
+   <td>CharField('Nombre', max_length=100, unique = False, blank = False, null = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>last_name</strong>
+   </td>
+   <td>CharField('Apellido', max_length=100, unique = False, blank = False, null = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>artist_name</strong>
+   </td>
+   <td>CharField('Nombre Artistico', max_length=100, unique = True, blank = False, null = False)
+   </td>
+  </tr>
+</tbody></table>
+
+<h3>Album</h3>
+
+<table>
+  <tbody><tr>
+   <td><strong>Dato</strong>
+   </td>
+   <td><strong>Valor</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>name</strong>
+   </td>
+   <td>CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>release_date</strong>
+   </td>
+   <td>DateField()
+   </td>
+  </tr>
+  <tr>
+   <td><strong>genre</strong>
+   </td>
+   <td>CharField('Genero', max_length=50, unique = False, null = True, blank = True)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>image</strong>
+   </td>
+   <td>ImageField('Tapa', upload_to='artistas/', blank = True, null = True)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>belongs_to_artist</strong>
+   </td>
+   <td>ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = True)
+   </td>
+  </tr>
+</tbody></table>
+
+<h3>Song</h3>
+
+<table>
+  <tbody><tr>
+   <td><strong>Dato</strong>
+   </td>
+   <td><strong>Valor</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>track_id</strong>
+   </td>
+   <td>SmallIntegerField()
+   </td>
+  </tr>
+  <tr>
+   <td><strong>name</strong>
+   </td>
+   <td>CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>minutes</strong>
+   </td>
+   <td>SmallIntegerField()
+   </td>
+  </tr>
+  <tr>
+   <td><strong>seconds</strong>
+   </td>
+   <td>SmallIntegerField()
+   </td>
+  </tr>
+  <tr>
+   <td><strong>belongs_to_album</strong>
+   </td>
+   <td>ForeignKey(Album, on_delete=models.CASCADE, verbose_name = 'Album', null = True)
+   </td>
+  </tr>
+</tbody></table>
+
