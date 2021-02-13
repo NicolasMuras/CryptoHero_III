@@ -33,6 +33,7 @@ Endpoints:
 * Recibir pagos. (cantidad, tipo de criptomoneda)
 * Recibir registro de canciones: (id, nombre_genero), (id, nombre_cancion), (nombre_artistico, nombre, apellido), (nombre_album, cantidad_canciones).
 
+* Enviar cancion a la api. (Motivo de que la aplicación pueda relacionar canción con pago y feedback)
 * Enviar rango de colores (rojo - verde) entre mas verde, mejor es la remuneración en dicho lugar u horario.
 * Enviar monto total ganado en dolares.
 
