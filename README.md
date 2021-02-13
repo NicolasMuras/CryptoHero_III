@@ -14,37 +14,126 @@
 
 La tecnología avanza. Estamos en el año 2078.
 El sistema monetario de billetes y monedas se deja de utilizar, ahora los pagos se realizan de forma electrónica.
-Artistas independientes de todas partes del mundo buscan una manera de poder seguir siendo remunerados actuando en las calles.
+Artistas callejeros de todas partes del mundo buscan una manera de poder seguir siendo remunerados actuando en las calles.
 Buscan un programador, se contactan conmigo y les ofrezco una solución, un sistema de pago electrónico.
-Para esto se construye un pedal de guitarra, tiene delay pero también funciona como wallet de criptomonedas.
-Después, el artista solo tiene que descargar una aplicación en su dispositivo móvil.
-Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar pagos criptográficos.
+Para esto se construye un pedal de guitarra, tiene delay pero también android y pantalla tactil.
+Después, el artista solo tiene que descargar la aplicación, esta proveera una wallet y algunas funcionalidades.
+Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar pagos en criptomonedas.
 
 Características de la app:
 * Visualizar mediante GPS cuales son los lugares en los que se recibe mejor remuneración.
 * Poder visualizar las horas donde la remuneración es mas alta.
-* Sistema de registro de canciones, ahora podras ver cual es tu canción mas exitosa.
+* Sistema de registro de canciones, ahora podras ver cual es tu canción mejor remunerada.
 * Se podra consultar los pagos obtenidos en un log. Ademas de ver la cantidad total de dinero ganado.
-* Oyentes podrán adjuntar con su pago un comentario y otorgar una puntuación.
-* Al seleccionar una canción se mostrara en orden cronologico un listado de comentarios, puntuaciónes y su respectivo pago.
+* Nos permitira ver graficamente nuestro crecimiento economico desde que se comenzo a utilizar la app.
 
-Endpoints:
-* Recibir datos de gps. (x, y)
-* Recibir horario / fecha (mes, dia, hora, min)
-* Recibir feedback. (puntuación, comentario)
-* Recibir pagos. (cantidad, tipo de criptomoneda)
-* Recibir registro de canciones: (id, nombre_genero), (id, nombre_cancion), (nombre_artistico, nombre, apellido), (nombre_album, cantidad_canciones).
+<h2><a id="user-content-implementación-del-proyecto" class="anchor" aria-hidden="true" href="#implementación-del-proyecto"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementación del proyecto</h2>
+<ul>
+<li><strong>Python</strong>: El lenguaje utilizado para la elaboracion del codigo.</li>
+<li><strong>Django</strong>: Framework open-source utilizado para la elaboración del proyecto.</li>
+<li><strong>Django REST</strong>: Es una aplicación de django que nos permitira contruir el proyecto bajo la arquitectura REST.</li>
+<li><strong>django-simple-history</strong>: Guarda el estado del modelo Django en cada create/update/delete.</li>
+<li><strong>Insomnia</strong>: Utilizo insomnia para ir testeando la aplicación mediante requests a medida que avanzo.</li>
+<li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
+</ul>
 
-* Enviar cancion a la api. (Motivo de que la aplicación pueda relacionar canción con pago y feedback)
-* Enviar rango de colores (rojo - verde) entre mas verde, mejor es la remuneración en dicho lugar u horario.
-* Enviar monto total ganado en dolares.
+Utilizo una estructura escalable desde el comienzo, se me hace mas organizado y facil de manejar, me gusta separar bien los archivos y carpetas.
 
-Modelos:<br>
-* Artista --> Album --> Cancion
+<h3>Estructura del proyecto:</h3>
 
-* Pay
-* Wallet
+<pre>
+PROYECT
+│   manage.py
+│
+├───apps
+│   │   
+│   │
+│   ├───base
+│   │   │   admin.py
+│   │   │   api.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   tests.py
+│   │   │   views.py
+│   │   │   
+│   │   │
+│   │   └───migrations
+│   │          
+│   │
+│   ├───payments
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   
+│   │   │
+│   │   ├───api
+│   │   │   │   urls.py
+│   │   │   │   
+│   │   │   │
+│   │   │   ├───serializers
+│   │   │   │       general_serializers.py
+│   │   │   │       payment_serializers.py
+│   │   │   │       
+│   │   │   │
+│   │   │   └───views
+│   │   │           general_views.py
+│   │   │           payment_views.py
+│   │   │           
+│   │   │
+│   │   ├───migrations
+│   │   │       0001_initial.py
+│   │   │       
+│   │   │
+│   │   └───tests
+│   │           test_api.py
+│   │           test_common.py
+│   │           test_ui.py
+│   │          
+│   │
+│   └───songs
+│       │   admin.py
+│       │   apps.py
+│       │   models.py
+│       │   
+│       │
+│       ├───api
+│       │   │   urls.py
+│       │   │   
+│       │   │
+│       │   ├───serializers
+│       │   │       general_serializers.py
+│       │   │       song_serializers.py
+│       │   │       
+│       │   │
+│       │   └───views
+│       │           general_views.py
+│       │           song_views.py
+│       │           
+│       │
+│       ├───migrations
+│       │       0001_initial.py
+│       │       0002_auto_20210213_1527.py
+│       │       
+│       │
+│       └───tests
+│               test_api.py
+│               test_common.py
+│               test_ui.py
+│               
+│
+└───PROYECT
+    │   asgi.py
+    │   db.sqlite3
+    │   urls.py
+    │   wsgi.py
+    │   
+    │
+    └───settings
+            base.py
+            local.py
+            production.py
+            
+</pre>
 
-Abstracto:<br>
-* Album --> Genero<br>
-* Pay --> Location, DateTime, Feedback.
+Realizo el siguiente esquema para identificar endpoints:
+
