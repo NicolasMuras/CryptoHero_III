@@ -21,8 +21,8 @@ class Artist(BaseModel):
 
     class Meta:
 
-        verbose_name = 'Álbum'
-        verbose_name_plural = 'Álbumes'
+        verbose_name = 'Artista'
+        verbose_name_plural = 'Artistas'
 
     def __str__(self):
         return self.artist_name
@@ -33,7 +33,7 @@ class Album(BaseModel):
     name = models.CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
     release_date = models.DateField()
     genre = models.CharField('Genero', max_length=50, unique = False, null = True, blank = True)
-    image = models.ImageField('Tapa', upload_to='artists/', blank = True, null = True)
+    image = models.ImageField('Tapa', upload_to='artistas/', blank = True, null = True)
     belongs_to_artist = models.ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = True)
     historical = HistoricalRecords
 
@@ -47,8 +47,8 @@ class Album(BaseModel):
 
     class Meta:
 
-        verbose_name = 'Álbum'
-        verbose_name_plural = 'Álbumes'
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albumes'
 
     def __str__(self):
         return self.name
@@ -56,6 +56,7 @@ class Album(BaseModel):
 class Song(BaseModel):
 
     # TODO: Define fields here:
+    track_id = models.SmallIntegerField()
     name = models.CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
     minutes = models.SmallIntegerField()
     seconds = models.SmallIntegerField()

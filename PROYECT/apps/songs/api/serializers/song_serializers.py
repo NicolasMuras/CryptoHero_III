@@ -9,13 +9,16 @@ class SongSerializer(serializers.ModelSerializer):
         exclude = ('state', 'created_date', 'modified_date', 'deleted_date')
 
     def to_representation(self, instance):
-        
-        duration = str(instance.minutes) + ':' + str(instance.seconds)
+
+        if instance.seconds < 9:
+            duration = str(instance.minutes) + ':0' + str(instance.seconds)
+        else:
+            duration = str(instance.minutes) + ':' + str(instance.seconds)
 
         return {
-            'id': instance.id,
-            'name': instance.name,
-            'album': instance.belongs_to_album.name,
-            'artist': instance.belongs_to_album.belongs_to_artist.name,
-            'duration': duration
+            'Track': instance.track_id,
+            'Nombre': instance.name,
+            'Album': instance.belongs_to_album.name,
+            'Artista': instance.belongs_to_album.belongs_to_artist.artist_name,
+            'Duración': duration
         }
