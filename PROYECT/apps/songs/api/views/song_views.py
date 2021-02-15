@@ -1,31 +1,31 @@
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
+
 from apps.base.api import GeneralListAPIView
-from apps.songs.api.serializers.song_serializers import SongSerializer
+from apps.songs.api.serializers.song_serializers import DetailSongSerializer, ListSongSerializer, CreateSongSerializer, UpdateSongSerializer
 
-class SongListAPIView(GeneralListAPIView):
-    serializer_class = SongSerializer
+class SongListCreateAPIView(generics.ListCreateAPIView):
+    serializer_class = ListSongSerializer
+    queryset = ListSongSerializer.Meta.model.objects.filter(state = True)
 
-class SongCreateAPIView(generics.CreateAPIView):
-    serializer_class = SongSerializer
-
-    # Se intercepta metodo create para modificar su funcionamiento.
+    # Sobreescribimos la función post para presentar un mensaje al crear un objeto.
     def post (self, request):
-        serializer = self.serializer_class(data = request.data)
+        serializer = CreateSongSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Canción creada correctamente!'}, status = status.HTTP_201_CREATED)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class SongRetrieveAPIView(generics.RetrieveAPIView):
-    serializer_class = SongSerializer
+    serializer_class = DetailSongSerializer
 
     def get_queryset(self):
         return self.get_serializer().Meta.model.objects.filter(state = True)
 
 class SongDestroyAPIView(generics.DestroyAPIView):
-    serializer_class = SongSerializer
+    serializer_class = ListSongSerializer
 
     def get_queryset(self):
         return self.get_serializer().Meta.model.objects.filter(state = True)
@@ -41,7 +41,7 @@ class SongDestroyAPIView(generics.DestroyAPIView):
         return Response({'error': 'No existe una canción con estos datos!'}, status = status.HTTP_400_BAD_REQUEST)
 
 class SongUpdateAPIView(generics.UpdateAPIView):
-    serializer_class = SongSerializer
+    serializer_class = UpdateSongSerializer
 
     def get_queryset(self, pk):
         return self.get_serializer().Meta.model.objects.filter(state = True).filter(id = pk).first()
