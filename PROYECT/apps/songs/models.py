@@ -23,6 +23,8 @@ class Artist(BaseModel):
 
         verbose_name = 'Artista'
         verbose_name_plural = 'Artistas'
+    def __unicode__(self):
+        return self.artist_name
 
     def __str__(self):
         return self.artist_name
@@ -50,6 +52,9 @@ class Album(BaseModel):
         verbose_name = 'Album'
         verbose_name_plural = 'Albumes'
 
+    def __unicode__(self):
+        return self.name
+
     def __str__(self):
         return self.name
 
@@ -76,6 +81,9 @@ class Song(BaseModel):
 
         verbose_name = 'Cancion'
         verbose_name_plural = 'Canciones'
+
+    def __unicode__(self):
+        return self.name
 
     def __str__(self):
         return self.name

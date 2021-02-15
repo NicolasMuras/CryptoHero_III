@@ -1,7 +1,7 @@
 from apps.songs.models import Album, Artist
 from rest_framework import serializers
 
-class AlbumSerializer(serializers.ModelSerializer):
+class ListAlbumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Album
@@ -18,8 +18,21 @@ class AlbumSerializer(serializers.ModelSerializer):
             'Artista': instance.belongs_to_artist.artist_name,
         }
 
-class ArtistSerializer(serializers.ModelSerializer):
+class DetailAlbumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Album
+        fields = '__all__'
 
+class CreateAlbumSerializer(serializers.ModelSerializer):
+    pass
+
+class UpdateAlbumSerializer(serializers.ModelSerializer):
+    pass
+
+#############################################[  Artist  ]############################################
+
+class ListArtistSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Artist
         # Data filter:
@@ -33,3 +46,15 @@ class ArtistSerializer(serializers.ModelSerializer):
             'Apellido': instance.last_name,
             'Nombre artistico': instance.artist_name,
         }
+
+
+class DetailArtistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = '__all__'
+
+class CreateArtistSerializer(serializers.ModelSerializer):
+    pass
+
+class UpdateArtistSerializer(serializers.ModelSerializer):
+    pass

@@ -25,6 +25,7 @@ class ListSongSerializer(serializers.ModelSerializer):
             duration = str(instance.minutes) + ':' + str(instance.seconds)
 
         return {
+            'id': instance.id,
             'Track': instance.track_id,
             'Nombre': instance.name,
             'Album': self.serialize_if_exist(instance),
@@ -46,17 +47,18 @@ class DetailSongSerializer(serializers.ModelSerializer):
         model = Song
         fields = '__all__'
 
-class CreateSongSerializer(serializers.Serializer):
-    class Meta:
-        model = Song
-        fields = ('track_id', 'name', 'minutes', 'seconds')
+class CreateSongSerializer(serializers.ModelSerializer):
 
     track_id = serializers.IntegerField()
     name = serializers.CharField(max_length=100)
     minutes = serializers.IntegerField()
     seconds = serializers.IntegerField()
-    #belongs_to_album = serializers.RelatedField(source='belongs_to_album.name', read_only=True)
-    #autor = serializers.RelatedField(source='autor.name', read_only=True)
+    belongs_to_album = AlbumSerializer.Meta.model.objects.all().values('name')
+    autor = ArtistSerializer.Meta.model.objects.all().values('artist_name')
+
+    class Meta:
+        model = Song
+        fields = ('track_id', 'name', 'minutes', 'seconds', 'belongs_to_album', 'autor',)
 
 
     def validate_track_id(self, value):
@@ -100,15 +102,18 @@ class CreateSongSerializer(serializers.Serializer):
         song.save()
         return song
 
-class UpdateSongSerializer(serializers.Serializer):
-    class Meta:
-        model = Song
-        fields = ['track_id', 'name', 'minutes', 'seconds']
+class UpdateSongSerializer(serializers.ModelSerializer):
 
     track_id = serializers.IntegerField()
     name = serializers.CharField(max_length=100)
     minutes = serializers.IntegerField()
     seconds = serializers.IntegerField()
+    belongs_to_album = AlbumSerializer.Meta.model.objects.all().values('name')
+    autor = ArtistSerializer.Meta.model.objects.all().values('artist_name')
+
+    class Meta:
+        model = Song
+        fields = ('track_id', 'name', 'minutes', 'seconds', 'belongs_to_album', 'autor',)
 
     def validate_track_id(self, value):
 
@@ -142,6 +147,14 @@ class UpdateSongSerializer(serializers.Serializer):
 
         return value
 
+    def validate_belongs_to_album(self, value):
+
+        return value
+
+    def validate_autor(self, value):
+
+        return value
+
     def validate(self, data):
         return data
 
@@ -150,5 +163,7 @@ class UpdateSongSerializer(serializers.Serializer):
         instance.name = validated_data.get('name', instance.name)
         instance.minutes = validated_data.get('minutes', instance.minutes)
         instance.seconds = validated_data.get('seconds', instance.seconds)
+        instance.belongs_to_album = validated_data.get('belongs_to_album', instance.belongs_to_album)
+        instance.autor = validated_data.get('autor', instance.autor)
         instance.save()
         return instance

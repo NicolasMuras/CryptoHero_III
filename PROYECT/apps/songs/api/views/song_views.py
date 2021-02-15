@@ -8,7 +8,7 @@ from apps.songs.api.serializers.song_serializers import DetailSongSerializer, Li
 
 class SongListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = ListSongSerializer
-    queryset = ListSongSerializer.Meta.model.objects.filter(state = True)
+    queryset = DetailSongSerializer.Meta.model.objects.filter(state = True)
 
     # Sobreescribimos la función post para presentar un mensaje al crear un objeto.
     def post (self, request):
