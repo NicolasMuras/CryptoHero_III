@@ -1,6 +1,15 @@
 from django.contrib import admin
 from apps.songs.models import *
 
-admin.site.register(Artist)
-admin.site.register(Album)
-admin.site.register(Song)
+class ArtistAdmin(admin.ModelAdmin):
+    list_display = ('id', 'artist_name')
+
+class AlbumAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+class SongAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+admin.site.register(Artist, ArtistAdmin)
+admin.site.register(Album, AlbumAdmin)
+admin.site.register(Song, SongAdmin)

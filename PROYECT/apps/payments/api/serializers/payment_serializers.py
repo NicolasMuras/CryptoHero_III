@@ -13,6 +13,7 @@ class PaySerializer(serializers.ModelSerializer):
         return {
             'Cantidad': instance.quantity,
             'Criptodivisa': instance.cryptocurrency,
-            'Coordenadas': "X: " + instance.location.x_coord + " Y:" + instance.location.y_coord,
+            'Coordenada X': instance.location.x_coord,
+            'Coordenada Y': instance.location.y_coord,
             'Wallet': instance.wallet_address,
         }

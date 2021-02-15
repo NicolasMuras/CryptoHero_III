@@ -30,7 +30,7 @@ class Location(BaseModel):
         verbose_name_plural = 'Localizaciónes'
 
     def __str__(self):
-        return str(self.x_coord)
+        return f'Coordenadas: {str(self.x_coord)} : {str(self.y_coord)}'
 
 class Pay(BaseModel):
 

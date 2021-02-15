@@ -30,7 +30,7 @@ class Artist(BaseModel):
 class Album(BaseModel):
 
     # TODO: Define fields here:
-    name = models.CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
+    name = models.CharField('Nombre', max_length=100, unique = False, null = True, blank = True)
     release_date = models.DateField()
     genre = models.CharField('Genero', max_length=50, unique = False, null = True, blank = True)
     image = models.ImageField('Tapa', upload_to='artistas/', blank = True, null = True)
@@ -60,7 +60,8 @@ class Song(BaseModel):
     name = models.CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
     minutes = models.SmallIntegerField()
     seconds = models.SmallIntegerField()
-    belongs_to_album = models.ForeignKey(Album, on_delete=models.CASCADE, verbose_name = 'Album', null = True)
+    belongs_to_album = models.ForeignKey(Album, on_delete=models.CASCADE, verbose_name = 'Album', null = True, blank = True)
+    autor = models.ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = False)
     historical = HistoricalRecords
 
     @property

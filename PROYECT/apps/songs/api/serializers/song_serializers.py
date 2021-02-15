@@ -18,7 +18,15 @@ class SongSerializer(serializers.ModelSerializer):
         return {
             'Track': instance.track_id,
             'Nombre': instance.name,
-            'Album': instance.belongs_to_album.name,
-            'Artista': instance.belongs_to_album.belongs_to_artist.artist_name,
+            'Album': self.serialize_if_exist(instance),
+            'Artista': instance.autor.artist_name,
             'Duración': duration
         }
+
+    def serialize_if_exist(self, instance):
+        try:
+            if instance.belongs_to_album.name != '':
+                return instance.belongs_to_album.name
+                
+        except Exception:
+            return ''
