@@ -1,4 +1,4 @@
-from rest_framework import generics
+
 from apps.base.api import GeneralListAPIView
 from apps.songs.api.serializers.general_serializers import AlbumSerializer, ArtistSerializer
 

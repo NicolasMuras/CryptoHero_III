@@ -47,7 +47,6 @@ class ListArtistSerializer(serializers.ModelSerializer):
             'Nombre artistico': instance.artist_name,
         }
 
-
 class DetailArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
