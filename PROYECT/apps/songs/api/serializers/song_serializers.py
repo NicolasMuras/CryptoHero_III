@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.songs.models import Song
-from apps.songs.api.serializers.general_serializers import ArtistSerializer, AlbumSerializer
+from apps.songs.api.serializers.general_serializers import ListArtistSerializer, ListAlbumSerializer
 
 #############################################[  GLOBALS  ]############################################
 
