@@ -1,9 +1,9 @@
 
 from apps.base.api import GeneralListAPIView
-from apps.songs.api.serializers.general_serializers import AlbumSerializer, ArtistSerializer
+from apps.songs.api.serializers.general_serializers import ListAlbumSerializer, ListArtistSerializer
 
 class AlbumListAPIView(GeneralListAPIView):
-    serializer_class = AlbumSerializer
+    serializer_class = ListAlbumSerializer
 
 class ArtistListAPIView(GeneralListAPIView):
-    serializer_class = ArtistSerializer
+    serializer_class = ListArtistSerializer
