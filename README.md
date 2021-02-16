@@ -42,7 +42,17 @@ Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar 
 <li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
 </ul>
 
-Utilizo una estructura escalable desde el comienzo, se me hace mas organizado y facil de manejar, me gusta separar bien los archivos y carpetas.
+Me propuse un desafio personal, si bien me dijeron que la entrevista seria casual y relajada, no queria ir con las manos vacias, la pregunta es la siguiente: 
+
+<h3>¿ Como uno puede demostrar su capacidad de adaptación y aprendizaje?.</h3>
+
+La respuesta a esto es utilizar una medida estandar como es el tiempo, para aprender una nueva tecnologia en tiempo record e implementarla en un proyecto real !
+Me anime a implementar el ecosistema de Docker por primera vez en un proyecto que quizas si, quizas no, me tocaria exponer.
+Sigo los mismos principios que utilizo para mis proyectos con DRF anteriores, pero en este utilizo diversos metodos para los diferentes modelos que se incluyen en la api, 
+quiero dejar claro, lo ideal es seguir un mismo patron y ser consistente en cuanto a codigo se refiere, pero teniendo un framework tan grande y flexible como lo es "Django REST Framework" en este proyecto en especifico busque destacar mi flexibilidad, conosco diferentes maneras de trabajar, y puedo hacer uso de ellas cuando la situación lo requiera.
+Esto se traduce en mostrar una mejor adaptación al trabajo de otro desarrollador, y compreención de distintos patrones de diseño.
+
+<h3>Clave:</h3> Utilizo una estructura escalable desde el comienzo, se me hace mas organizado y facil de manejar, me gusta separar bien los archivos y carpetas.
 
 <h3>Estructura del proyecto:</h3>
 
