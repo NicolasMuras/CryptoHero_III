@@ -8,12 +8,14 @@ class LocationViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Cre
     serializer_class = LocationSerializer
 
     def get_queryset(self):
-        return self.queryset.filter(state = True).order_by('-address')
+        return self.queryset.filter(state = True).order_by('-id')
     
     def get_serializer_class(self):
         if self.action == 'retrieve':
+            print('hello')
             return DetailLocationSerializer
         else:
+            print('hola')
             return LocationSerializer
 
     def perform_create(self, serializer):
