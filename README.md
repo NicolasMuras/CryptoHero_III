@@ -32,7 +32,9 @@ Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar 
 <ul>
 <li><strong>Python</strong>: El lenguaje utilizado para la elaboracion del codigo.</li>
 <li><strong>Django</strong>: Framework open-source utilizado para la elaboración del proyecto.</li>
-<li><strong>Django REST</strong>: Es una aplicación de django que nos permitira contruir el proyecto bajo la arquitectura REST.</li>
+<li><strong>Django REST Framework</strong>: Es una aplicación de django que nos permitira contruir el proyecto bajo la arquitectura REST.</li>
+<li><strong>Ecosistema Docker (docker, Dockerfile, Docker-Compose)</strong>:  A partir del Dockerfile en el raíz del proyecto se puede compilar la imagen que corre la REST API hecha en Django REST Framework, con todas sus dependencias y código fuente dentro. Con Docker-Compose se puede ejecutar la aplicación con un único comando, creando además un servidor de base de datos PostgreSQL.</li>
+<li><strong>PostgreSQL</strong>: Sistema de gestion de base de datos elegido.</li>
 <li><strong>django-simple-history</strong>: Guarda el estado del modelo Django en cada create/update/delete.</li>
 <li><strong>Insomnia</strong>: Utilizo insomnia para ir testeando la aplicación mediante requests a medida que avanzo.</li>
 <li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
