@@ -1,8 +1,13 @@
-from django.urls import path
-from apps.payments.api.views.general_views import LocationListAPIView
-from apps.payments.api.views.payment_views import PayListAPIView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from apps.payments.api.views import payment_views
+
+router = DefaultRouter()
+router.register('locations', payment_views.LocationViewSet)
+router.register('payments', payment_views.PayViewSet)
+
+app_name = 'payment'
 
 urlpatterns = [
-    path('pagos/', PayListAPIView.as_view(), name = 'pagos'),
-    path('locations/', LocationListAPIView.as_view(), name = 'locations'),
+    path('', include(router.urls))
 ]

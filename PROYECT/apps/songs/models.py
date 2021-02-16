@@ -1,7 +1,15 @@
+import uuid
+import os
 from django.db import models
 from simple_history.models import HistoricalRecords
 
 from apps.base.models import BaseModel
+
+def image_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+
+    return os.path.join('uploads/albumes', filename)
 
 class Artist(BaseModel):
 
@@ -35,7 +43,7 @@ class Album(BaseModel):
     name = models.CharField('Nombre', max_length=100, unique = False, null = True, blank = True)
     release_date = models.DateField()
     genre = models.CharField('Genero', max_length=50, unique = False, null = True, blank = True)
-    image = models.ImageField('Tapa', upload_to='artistas/', blank = True, null = True)
+    image = models.ImageField('Tapa', upload_to=image_file_path, blank = True, null = True)
     belongs_to_artist = models.ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = True)
     historical = HistoricalRecords
 

@@ -1,6 +1,8 @@
 from apps.songs.models import Album, Artist
 from rest_framework import serializers
 
+#############################################[  Album  ]#############################################
+
 class ListAlbumSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -28,6 +30,13 @@ class CreateAlbumSerializer(serializers.ModelSerializer):
 
 class UpdateAlbumSerializer(serializers.ModelSerializer):
     pass
+
+class AlbumImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Album
+        fields = ('id', 'image')
+        read_only_fields = ('id',)
 
 #############################################[  Artist  ]############################################
 

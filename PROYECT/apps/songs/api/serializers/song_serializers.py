@@ -53,8 +53,8 @@ class CreateSongSerializer(serializers.ModelSerializer):
     name = serializers.CharField(max_length=100)
     minutes = serializers.IntegerField()
     seconds = serializers.IntegerField()
-    belongs_to_album = AlbumSerializer.Meta.model.objects.all().values('name')
-    autor = ArtistSerializer.Meta.model.objects.all().values('artist_name')
+    belongs_to_album = ListAlbumSerializer.Meta.model.objects.all().values('name')
+    autor = ListArtistSerializer.Meta.model.objects.all().values('artist_name')
 
     class Meta:
         model = Song
@@ -79,7 +79,7 @@ class CreateSongSerializer(serializers.ModelSerializer):
 
     def validate_minutes(self, value):
 
-        # custom validation: los minutos deben obedecer a la logica.
+        # custom validation: los minutos deben tener un rango de valores que se refleje a la realidad.
         if value > 60 or value < 0:
             raise serializers.ValidationError(INVALID_RANGE)
 
@@ -87,7 +87,7 @@ class CreateSongSerializer(serializers.ModelSerializer):
 
     def validate_seconds(self, value):
 
-        # custom validation: los segundos deben obedecer a la logica.
+        # custom validation: los minutos deben tener un rango de valores que se refleje a la realidad.
         if value > 60 or value < 0:
             raise serializers.ValidationError(INVALID_RANGE)
 
@@ -108,8 +108,8 @@ class UpdateSongSerializer(serializers.ModelSerializer):
     name = serializers.CharField(max_length=100)
     minutes = serializers.IntegerField()
     seconds = serializers.IntegerField()
-    belongs_to_album = AlbumSerializer.Meta.model.objects.all().values('name')
-    autor = ArtistSerializer.Meta.model.objects.all().values('artist_name')
+    belongs_to_album = ListAlbumSerializer.Meta.model.objects.all().values('name')
+    autor = ListArtistSerializer.Meta.model.objects.all().values('artist_name')
 
     class Meta:
         model = Song
@@ -133,7 +133,7 @@ class UpdateSongSerializer(serializers.ModelSerializer):
 
     def validate_minutes(self, value):
 
-        # custom validation: los minutos deben obedecer a la logica.
+        # custom validation: los minutos deben tener un rango de valores que se refleje a la realidad.
         if value > 60 or value < 0:
             raise serializers.ValidationError(INVALID_RANGE)
 
@@ -141,7 +141,7 @@ class UpdateSongSerializer(serializers.ModelSerializer):
 
     def validate_seconds(self, value):
 
-        # custom validation: los segundos deben obedecer a la logica.
+        # custom validation: los minutos deben tener un rango de valores que se refleje a la realidad.
         if value > 60 or value < 0:
             raise serializers.ValidationError(INVALID_RANGE)
 

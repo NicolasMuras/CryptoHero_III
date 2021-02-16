@@ -6,11 +6,12 @@ class Location(BaseModel):
 
     address = models.CharField('Direccion', max_length=100, unique = False, blank = False, null = True)
     city = models.CharField('Ciudad', max_length=100, unique = False, blank = False, null = False)
-    state = models.CharField('Estado', max_length=100, unique = False, blank = False, null = False)
+    state_name = models.CharField('Estado', max_length=100, unique = False, blank = False, null = False)
     x_coord = models.FloatField()
     y_coord = models.FloatField()
     historical = HistoricalRecords
 
+    # Redondea numeros reales a partir de 6 decimales.
     def save(self, *args, **kwargs):
         self.x_coord = round(self.x_coord, 6)
         self.y_coord = round(self.y_coord, 6)
