@@ -8,7 +8,7 @@
   <li><a href="#introduccion-al-proyecto">Introducción al proyecto</a></li>
   <li><a href="#implementaci%C3%B3n-del-proyecto">Implementacion del proyecto</a></li>
   <li><a href="#instalaci%C3%B3n-de-dependencias">Instalacion de dependencias</a></li>
-  <li><a hred="#iniciar-la-aplicacion">Iniciar la aplicación</a></li>
+  <li><a href="#iniciar-la-aplicacion">Iniciar la aplicación</a></li>
   <li><a href="#modelos">Modelos</a></li>
 </ul>
 
@@ -161,7 +161,7 @@ El primer paso es ejecutar la aplicación con el comando a continuación.
 <em>
   Nota: Si es la primera vez que se ejecuta la aplicación, puede haber errores con respecto a existencia de la base de datos 'app', usted puede ejecutar primero el servicio PosgreSQL y crearla con los siguientes comandos.
 </em>
-
+<br>
 <pre><code># su postgres
 </code></pre>
 
@@ -170,6 +170,8 @@ El primer paso es ejecutar la aplicación con el comando a continuación.
 
 <pre><code>postgres-# create database app;
 </code></pre>
+<br>
+Es necesario notar que esto sólo ocurrirá la primera vez que se ejecute la aplicación.
 
 <h2><a id="user-content-modelos" class="anchor" aria-hidden="true" href="#modelos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Modelos</h2>
 
