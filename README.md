@@ -251,3 +251,9 @@ PROYECT
   </tr>
 </tbody></table>
 
+Conectarnos a postgres de nuestra maquina local
+# su postgres
+# psql
+
+La creación de una base de datos se realiza como a continuación:
+postgres-# create database app;
