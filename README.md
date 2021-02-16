@@ -7,6 +7,8 @@
 <ul>
   <li><a href="#introduccion-al-proyecto">Introducción al proyecto</a></li>
   <li><a href="#implementaci%C3%B3n-del-proyecto">Implementacion del proyecto</a></li>
+  <li><a href="#instalaci%C3%B3n-de-dependencias">Instalacion de dependencias</a></li>
+  <li><a hred="#iniciar-la-aplicacion">Iniciar la aplicación</a></li>
   <li><a href="#modelos">Modelos</a></li>
 </ul>
 
@@ -138,6 +140,37 @@ PROYECT
             
 </pre>
 
+<h2><a id="user-content-instalación-de-dependencias" class="anchor" aria-hidden="true" href="#instalación-de-dependencias"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Instalación de dependencias</h2>
+
+<p>Para correr este proyecto se necesitan las siguientes dependencias:</p>
+<ul>
+<li><a href="https://www.python.org/" rel="nofollow">Python 3+</a> (sólo necesario para modo desarrollo o testing).</li>
+<li><a href="https://docs.docker.com/get-docker/" rel="nofollow">Docker</a>.</li>
+<li><a href="https://docs.docker.com/compose/install/" rel="nofollow">Docker compose</a>.</li>
+</ul>
+<p>Una vez instaladas las dependencias se puede correr la aplicación.</p>
+
+<h2><a id="user-content-iniciar-la-aplicacion" class="anchor" aria-hidden="true" href="#iniciar-la-aplicacion"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Iniciar la aplicación</h2>
+
+La aplicación funciona sobre Docker-Compose, de esta manera se puede correr la misma en cualquier sistema operativo.
+
+El primer paso es ejecutar la aplicación con el comando a continuación.
+
+<pre><code>docker-compose up
+</code></pre>
+<em>
+  Nota: Si es la primera vez que se ejecuta la aplicación, puede haber errores con respecto a existencia de la base de datos 'app', usted puede ejecutar primero el servicio PosgreSQL y crearla con los siguientes comandos.
+</em>
+
+<pre><code># su postgres
+</code></pre>
+
+<pre><code># psql
+</code></pre>
+
+<pre><code>postgres-# create database app;
+</code></pre>
+
 <h2><a id="user-content-modelos" class="anchor" aria-hidden="true" href="#modelos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Modelos</h2>
 
 <h3>Artist</h3>
@@ -250,10 +283,3 @@ PROYECT
    </td>
   </tr>
 </tbody></table>
-
-Conectarnos a postgres de nuestra maquina local
-# su postgres
-# psql
-
-La creación de una base de datos se realiza como a continuación:
-postgres-# create database app;
