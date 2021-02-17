@@ -19,6 +19,10 @@ class LocationSerializer(serializers.ModelSerializer):
             'Coordenada Y':  instance.y_coord,
         }
 
+    def validate(self, data):
+        print(data)
+        return data
+
 class DetailLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
@@ -41,7 +45,9 @@ class PaySerializer(serializers.ModelSerializer):
             'Coordenada Y': instance.location.y_coord,
             'Wallet': instance.wallet_address,
         }
-
+    def validate(self, data):
+        return data
+        
 class DetailPaySerializer(PaySerializer):
 
     location = LocationSerializer(many=True, read_only=True)

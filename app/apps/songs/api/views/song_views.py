@@ -1,11 +1,10 @@
 from rest_framework import generics
 from rest_framework import status
-
 from rest_framework.response import Response
-from rest_framework.viewsets import GenericViewSet
 
-from apps.base.api import GeneralListAPIView
-from apps.songs.api.serializers.song_serializers import DetailSongSerializer, ListSongSerializer, CreateSongSerializer, UpdateSongSerializer
+from apps.songs.api.serializers.song_serializers import DetailSongSerializer, ListSongSerializer, CreateUpdateSongSerializer
+
+#############################################[  Song  ]############################################
 
 class SongListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = ListSongSerializer
@@ -13,7 +12,7 @@ class SongListCreateAPIView(generics.ListCreateAPIView):
 
     # Sobreescribimos la función post para presentar un mensaje al crear un objeto.
     def post (self, request):
-        serializer = CreateSongSerializer(data = request.data)
+        serializer = CreateUpdateSongSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Canción creada correctamente!'}, status = status.HTTP_201_CREATED)
@@ -42,7 +41,7 @@ class SongDestroyAPIView(generics.DestroyAPIView):
         return Response({'error': 'No existe una canción con estos datos!'}, status = status.HTTP_400_BAD_REQUEST)
 
 class SongUpdateAPIView(generics.UpdateAPIView):
-    serializer_class = UpdateSongSerializer
+    serializer_class = CreateUpdateSongSerializer
 
     def get_queryset(self, pk):
         return self.get_serializer().Meta.model.objects.filter(state = True).filter(id = pk).first()
