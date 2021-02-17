@@ -22,7 +22,7 @@ Para esto se construye un pedal de guitarra, tiene delay pero también android y
 Después, el artista solo tiene que descargar la aplicación, esta proveera una wallet y algunas funcionalidades.
 Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar pagos en criptomonedas.
 
-<h3>Características de la applicación:</h3>
+<h3>Características de la aplicación:</h3>
 <ul>
 <li><strong>Funcion basica: El usuario deberia poder enviar sus datos para registrarse, luego registrar sus canciones, poder ver un listado de sus canciones y elegir cual va a tocar. Cuando una persona le page, junto al pago, se adjuntarian datos de coordenadas, tiempo, fecha y la canción que esta sonando. Internamente se añadiria ese monto modelo que gestione el dinero recaudado para esa canción. Inmediatamente se puede visualizar en el historial de pagos (pantalla) el pago realizado.</strong></li>
 <li><strong>Mapa: El mapa solicitaria a la API los pagos almacenados, el monto se transformaria en un rango de colores, del rojo al verde, las coordenadas servirian para pintar puntos en el mapa, el verde nos indicaria las zonas en las que el artista recibe mejor remuneración y el rojo lo contrario.</strong></li>
