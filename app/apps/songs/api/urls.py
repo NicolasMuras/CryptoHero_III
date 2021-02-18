@@ -7,6 +7,7 @@ from apps.songs.api.views.song_views import (
     SongListCreateAPIView, SongRetrieveAPIView, SongDestroyAPIView, SongUpdateAPIView
     )
 
+
 urlpatterns = [
     path('artistas/', ArtistListCreateAPIView.as_view(), name = 'artistas'),
     path('artistas/retrieve/<int:pk>', ArtistDetailAPIView.as_view(), name='artist_retrieve'),

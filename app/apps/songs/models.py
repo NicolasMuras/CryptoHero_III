@@ -5,11 +5,13 @@ from simple_history.models import HistoricalRecords
 
 from apps.base.models import BaseModel
 
+
 def image_file_path(instance, filename):
     ext = filename.split('.')[-1]
     filename = f'{uuid.uuid4()}.{ext}'
 
     return os.path.join('uploads/albumes', filename)
+
 
 class Artist(BaseModel):
 
@@ -36,6 +38,7 @@ class Artist(BaseModel):
 
     def __str__(self):
         return self.artist_name
+
 
 class Album(BaseModel):
 
@@ -65,6 +68,7 @@ class Album(BaseModel):
 
     def __str__(self):
         return self.name
+
 
 class Song(BaseModel):
 

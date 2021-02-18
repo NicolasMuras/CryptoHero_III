@@ -2,6 +2,7 @@ from django.db import models
 from simple_history.models import HistoricalRecords
 from apps.base.models import BaseModel
 
+
 class Location(BaseModel):
 
     address = models.CharField('Direccion', max_length=100, unique = False, blank = False, null = True)
@@ -32,6 +33,7 @@ class Location(BaseModel):
 
     def __str__(self):
         return f'Coordenadas: {str(self.x_coord)} : {str(self.y_coord)}'
+
 
 class Pay(BaseModel):
 

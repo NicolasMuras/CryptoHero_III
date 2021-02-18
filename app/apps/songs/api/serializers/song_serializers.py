@@ -2,6 +2,7 @@ from rest_framework import serializers
 from apps.songs.models import Song
 from apps.songs.api.serializers.general_serializers import ListArtistSerializer, ListAlbumSerializer
 
+
 #############################################[  GLOBALS  ]############################################
 
 BLANK_SPACE = 'Espacio vacio.'
@@ -52,10 +53,12 @@ class ListSongSerializer(serializers.ModelSerializer):
             'Duración': duration
         }
 
+
 class DetailSongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = '__all__'
+
 
 class CreateUpdateSongSerializer(serializers.ModelSerializer):
     track_id = serializers.IntegerField()
@@ -96,12 +99,14 @@ class CreateUpdateSongSerializer(serializers.ModelSerializer):
     def validate(self, data):
         return data
 
+
 class CreateSongSerializer(CreateUpdateSongSerializer):
 
     def create(self, validated_data):
         song = Song(**validated_data)
         song.save()
         return song
+
 
 class UpdateSongSerializer(CreateUpdateSongSerializer):
 

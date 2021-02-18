@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from apps.payments.models import Pay, Location
 
+
 #############################################[  Location  ]############################################
 
 class LocationSerializer(serializers.ModelSerializer):
@@ -22,6 +23,7 @@ class LocationSerializer(serializers.ModelSerializer):
     def validate(self, data):
         print(data)
         return data
+
 
 class DetailLocationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,7 +49,8 @@ class PaySerializer(serializers.ModelSerializer):
         }
     def validate(self, data):
         return data
-        
+
+
 class DetailPaySerializer(PaySerializer):
 
     location = LocationSerializer(many=True, read_only=True)

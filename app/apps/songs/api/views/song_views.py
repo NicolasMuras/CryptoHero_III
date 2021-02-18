@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from apps.songs.api.serializers.song_serializers import DetailSongSerializer, ListSongSerializer, CreateUpdateSongSerializer
 
+
 #############################################[  Song  ]############################################
 
 class SongListCreateAPIView(generics.ListCreateAPIView):
@@ -18,11 +19,13 @@ class SongListCreateAPIView(generics.ListCreateAPIView):
             return Response({'message': 'Canción creada correctamente!'}, status = status.HTTP_201_CREATED)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
+
 class SongRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = DetailSongSerializer
 
     def get_queryset(self):
         return self.get_serializer().Meta.model.objects.filter(state = True)
+
 
 class SongDestroyAPIView(generics.DestroyAPIView):
     serializer_class = ListSongSerializer
@@ -39,6 +42,7 @@ class SongDestroyAPIView(generics.DestroyAPIView):
             song.save()
             return Response({'message':'Canción eliminada correctamente!'}, status = status.HTTP_200_OK)
         return Response({'error': 'No existe una canción con estos datos!'}, status = status.HTTP_400_BAD_REQUEST)
+
 
 class SongUpdateAPIView(generics.UpdateAPIView):
     serializer_class = CreateUpdateSongSerializer

@@ -1,5 +1,6 @@
 from rest_framework import generics
 
+
 class GeneralListAPIView(generics.ListAPIView):
     serializer_class = None
 

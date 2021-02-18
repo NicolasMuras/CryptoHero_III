@@ -1,6 +1,8 @@
 from apps.songs.models import Album, Artist
 from rest_framework import serializers
 from datetime import datetime
+
+
 #############################################[  GLOBALS  ]############################################
 
 BLANK_SPACE = 'Espacio vacio.'
@@ -48,10 +50,12 @@ class ListArtistSerializer(serializers.ModelSerializer):
             'Nombre artistico': instance.artist_name,
         }
 
+
 class DetailArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
         fields = '__all__'
+
 
 class CreateUpdateArtistSerializer(serializers.ModelSerializer):
 
@@ -94,10 +98,12 @@ class ListAlbumSerializer(serializers.ModelSerializer):
             'Artista': instance.belongs_to_artist.artist_name,
         }
 
+
 class DetailAlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
         fields = '__all__'
+
 
 class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
     name = serializers.CharField(max_length=100)
@@ -135,6 +141,7 @@ class CreateUpdateAlbumSerializer(serializers.ModelSerializer):
         instance.belongs_to_artist = validated_data.get('belongs_to_artist', instance.belongs_to_artist)
         instance.save()
         return instance
+
 
 class AlbumImageSerializer(serializers.ModelSerializer):
 

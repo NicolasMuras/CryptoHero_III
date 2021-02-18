@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from apps.payments.api.serializers.payment_serializers import PaySerializer, LocationSerializer, DetailPaySerializer, DetailLocationSerializer
 
+
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
@@ -21,6 +22,7 @@ class LocationViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(state = True).order_by('-id')
+
 
 class PayViewSet(viewsets.ModelViewSet):
     queryset = Pay.objects.all()

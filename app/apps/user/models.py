@@ -34,6 +34,7 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 # PermissionsMixin nos da caracteristicas que extienden la funcionalidad del modelo usuario de Django.
 class User(AbstractBaseUser, PermissionsMixin):
 
