@@ -54,7 +54,7 @@ La respuesta a esto es utilizar una medida estándar como es el tiempo, para apr
 Me anime a implementar el ecosistema de Docker por primera vez en un proyecto que quizás si, quizás no, me tocaría exponer.
 Sigo los mismos principios que utilizo para mis proyectos con DRF anteriores, pero en este utilizo diversos métodos para los diferentes modelos que se incluyen en la api, 
 quiero dejar claro, lo ideal es seguir un mismo patrón y ser consistente en cuanto a código se refiere, pero teniendo un framework tan grande y flexible como lo es "Django REST Framework" en este proyecto en especifico busque destacar mi flexibilidad, conozco diferentes maneras de trabajar, y puedo hacer uso de ellas cuando la situación lo requiera.
-Esto se traduce en mostrar una mejor adaptación al trabajo de otro desarrollador, y comprensión de distintos patrones de diseño.
+Esto se traduce en mostrar una mejor adaptación al trabajo de otro desarrollador y comprensión de distintos patrones de desarrollo.
 
 Que aprendi con Docker: <br>
 Es una buena practica utilizar esta tecnologia a la hora de comenzar un proyecto, pero tambien es adaptable a un proyecto en curso.
