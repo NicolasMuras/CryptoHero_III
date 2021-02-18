@@ -1,6 +1,7 @@
 import uuid
 import os
 from django.db import models
+
 from simple_history.models import HistoricalRecords
 
 from apps.base.models import BaseModel
@@ -15,10 +16,10 @@ def image_file_path(instance, filename):
 
 class Artist(BaseModel):
 
-    # TODO: Define fields here:
     name = models.CharField('Nombre', max_length=100, unique = False, blank = False, null = False)
     last_name = models.CharField('Apellido', max_length=100, unique = False, blank = False, null = False)
     artist_name = models.CharField('Nombre Artistico', max_length=100, unique = True, blank = False, null = False)
+
     historical = HistoricalRecords
 
     @property
@@ -42,12 +43,12 @@ class Artist(BaseModel):
 
 class Album(BaseModel):
 
-    # TODO: Define fields here:
     name = models.CharField('Nombre', max_length=100, unique = False, null = True, blank = True)
     release_date = models.DateField()
     genre = models.CharField('Genero', max_length=50, unique = False, null = True, blank = True)
     image = models.ImageField('Tapa', upload_to=image_file_path, blank = True, null = True)
     belongs_to_artist = models.ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = True)
+
     historical = HistoricalRecords
 
     @property
@@ -72,13 +73,13 @@ class Album(BaseModel):
 
 class Song(BaseModel):
 
-    # TODO: Define fields here:
     track_id = models.SmallIntegerField()
     name = models.CharField('Nombre', max_length=100, unique = False, null = False, blank = False)
     minutes = models.SmallIntegerField()
     seconds = models.SmallIntegerField()
     belongs_to_album = models.ForeignKey(Album, on_delete=models.CASCADE, verbose_name = 'Album', null = True, blank = True)
     autor = models.ForeignKey(Artist, on_delete=models.CASCADE, verbose_name = 'Autor', null = False)
+
     historical = HistoricalRecords
 
     @property

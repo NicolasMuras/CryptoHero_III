@@ -9,6 +9,7 @@ class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         exclude = ('state', 'modified_date', 'deleted_date')
+        read_only_fields = ('id',)
 
     def to_representation(self, instance):
 
@@ -21,7 +22,6 @@ class LocationSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, data):
-        print(data)
         return data
 
 
@@ -34,23 +34,20 @@ class DetailLocationSerializer(serializers.ModelSerializer):
 
 class PaySerializer(serializers.ModelSerializer):
     
+    location = serializers.PrimaryKeyRelatedField(
+        many=False,
+        queryset=Location.objects.all()
+    )
+    
     class Meta:
         model = Pay
-        exclude = ('state', 'created_date', 'modified_date', 'deleted_date')
+        fields = ('id', 'quantity', 'cryptocurrency', 'wallet_address', 'location')
+        read_only_fields = ('id',)
 
-    def to_representation(self, instance):
-
-        return {
-            'Cantidad': instance.quantity,
-            'Criptodivisa': instance.cryptocurrency,
-            'Coordenada X': instance.location.x_coord,
-            'Coordenada Y': instance.location.y_coord,
-            'Wallet': instance.wallet_address,
-        }
     def validate(self, data):
         return data
 
 
 class DetailPaySerializer(PaySerializer):
 
-    location = LocationSerializer(many=True, read_only=True)
+    location = LocationSerializer(many=False, read_only=True)

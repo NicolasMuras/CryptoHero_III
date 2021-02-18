@@ -1,7 +1,7 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 from apps.base.models import BaseModel
-
+from django.conf import settings
 
 class Location(BaseModel):
 
@@ -10,6 +10,8 @@ class Location(BaseModel):
     state_name = models.CharField('Estado', max_length=100, unique = False, blank = False, null = False)
     x_coord = models.FloatField()
     y_coord = models.FloatField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+
     historical = HistoricalRecords
 
     # Redondea numeros reales a partir de 6 decimales.
@@ -39,8 +41,11 @@ class Pay(BaseModel):
 
     quantity = models.FloatField()
     cryptocurrency = models.CharField('Criptodivisa', max_length=50, blank = False, unique = False, null = False)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, verbose_name = 'Coordenadas', null = True)
+    #location = models.ForeignKey(Location, on_delete=models.CASCADE, verbose_name = 'Coordenadas', null = True)
+    location = models.OneToOneField('Location', on_delete=models.CASCADE)
     wallet_address = models.CharField('Wallet', max_length= 32, blank = False, unique = False, null = False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+
     historical = HistoricalRecords
 
     def save(self, *args, **kwargs):
