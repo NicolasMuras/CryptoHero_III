@@ -208,7 +208,7 @@ El token de acceso nos permitira acceder a información relacioada a los pagos (
 CRUD completo para Song, Album y Artist. La relación funciona asi, una canción puede o no pertenecer a un album, pero es obligatorio que pertenezca a un artista.
 Por otro lado, un álbum debe pertenecer a un artista obligatoriamente.
 
-![alt text](https://github.com/NicolasMuras/CryptoHero_III_Leyends_Of_Bitcoin/blob/main/images/endpoints_1.bmp?raw=true)
+![alt text](https://github.com/NicolasMuras/CryptoHero_III_Leyends_Of_Bitcoin/blob/main/images/endpoints_2.bmp?raw=true)
 
 <h2>Modelos</h2>
 
