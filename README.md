@@ -42,6 +42,10 @@ Ahora los artistas en su gorra tendrán un código QR que servirá para aceptar 
 <li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
 </ul>
 
+Empecé tomando el lugar del cliente, establecí mis requerimientos sin pensar en 'programación', en base a eso, pase a escribir un pequeño backlog (sección introducción), este serviría para destacar objetos que podrían ser nuestros 'modelos' a la hora de programar además de ayudarnos a diferenciar los distintos usos que el usuario podría darle a dichos objetos (datos). Hice un boceto con las relaciones que estos objetos podrían tener entre si. Ya tenia mi diseño, es sencillo, y creo que es ideal para exponer.
+Procedí a escribir el código del programa, busco que sea prolijo y funcional al principio, luego se hace un refactoring con el objetivo de optimizar y simplificar el código.
+Una vez que una característica esta lista, pusheamos a Git. Hacemos rebuild a nuestro contenedor en Docker y seguimos trabajando. Al final, se documenta el código.
+
 Me propuse un desafío personal, si bien me dijeron que la entrevista seria casual y relajada, no quería ir con las manos vacías, la pregunta es la siguiente: 
 
 <h3>¿ Como uno puede demostrar su capacidad de adaptación y aprendizaje?.</h3>
@@ -50,7 +54,7 @@ La respuesta a esto es utilizar una medida estándar como es el tiempo, para apr
 Me anime a implementar el ecosistema de Docker por primera vez en un proyecto que quizás si, quizás no, me tocaría exponer.
 Sigo los mismos principios que utilizo para mis proyectos con DRF anteriores, pero en este utilizo diversos métodos para los diferentes modelos que se incluyen en la api, 
 quiero dejar claro, lo ideal es seguir un mismo patrón y ser consistente en cuanto a código se refiere, pero teniendo un framework tan grande y flexible como lo es "Django REST Framework" en este proyecto en especifico busque destacar mi flexibilidad, conozco diferentes maneras de trabajar, y puedo hacer uso de ellas cuando la situación lo requiera.
-Esto se traduce en mostrar una mejor adaptación al trabajo de otro desarrollador, y comprensión de distintos patrones de diseño.
+Esto se traduce en mostrar una mejor adaptación al trabajo de otro desarrollador y comprensión de distintos patrones de desarrollo.
 
 Que aprendi con Docker: <br>
 Es una buena practica utilizar esta tecnologia a la hora de comenzar un proyecto, pero tambien es adaptable a un proyecto en curso.
@@ -173,7 +177,7 @@ El primer paso es ejecutar la aplicación con el comando a continuación.
 <pre><code>docker-compose up
 </code></pre>
 <em>
-  Nota: Si es la primera vez que se ejecuta la aplicación, puede haber errores con respecto a existencia de la base de datos 'app', usted puede ejecutar primero el servicio PosgreSQL y crearla con los siguientes comandos.
+  Nota: Si es la primera vez que se ejecuta la aplicación, puede haber errores con respecto a existencia de la base de datos 'app', usted puede ejecutar primero el servicio PostgreSQL y crearla con los siguientes comandos.
 </em><br>
 <br>
 <pre>
