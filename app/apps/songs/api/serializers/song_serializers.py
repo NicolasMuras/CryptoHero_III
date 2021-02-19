@@ -55,12 +55,14 @@ class ListSongSerializer(serializers.ModelSerializer):
 
 
 class DetailSongSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Song
         fields = '__all__'
 
 
 class CreateUpdateSongSerializer(serializers.ModelSerializer):
+    
     track_id = serializers.IntegerField()
     name = serializers.CharField(max_length=100)
     minutes = serializers.IntegerField()

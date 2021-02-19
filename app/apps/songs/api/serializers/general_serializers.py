@@ -52,6 +52,7 @@ class ListArtistSerializer(serializers.ModelSerializer):
 
 
 class DetailArtistSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Artist
         fields = '__all__'
@@ -100,6 +101,7 @@ class ListAlbumSerializer(serializers.ModelSerializer):
 
 
 class DetailAlbumSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Album
         fields = '__all__'

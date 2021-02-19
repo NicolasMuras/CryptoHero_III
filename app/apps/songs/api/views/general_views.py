@@ -8,6 +8,7 @@ from apps.songs.api.serializers.general_serializers import ListAlbumSerializer, 
 #############################################[  Album  ]############################################
 
 class AlbumListCreateAPIView(generics.ListCreateAPIView):
+
     serializer_class = ListAlbumSerializer
     queryset = DetailAlbumSerializer.Meta.model.objects.filter(state = True)
 
@@ -21,6 +22,7 @@ class AlbumListCreateAPIView(generics.ListCreateAPIView):
 
 
 class AlbumDetailAPIview(generics.RetrieveAPIView):
+
     serializer_class = DetailAlbumSerializer
 
     def get_queryset(self):
@@ -67,6 +69,7 @@ class AlbumUpdateAPIView(generics.UpdateAPIView):
 #############################################[  Artist  ]############################################
 
 class ArtistListCreateAPIView(generics.ListCreateAPIView):
+    
     serializer_class = ListArtistSerializer
     queryset = DetailArtistSerializer.Meta.model.objects.filter(state = True)
 
