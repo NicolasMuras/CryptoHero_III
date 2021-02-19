@@ -1,4 +1,4 @@
-<h1> CryptoHero III: Leyends Of Bitcoin </h1>
+<h1> CryptoHero III </h1>
 
 ![alt text](https://github.com/NicolasMuras/CryptoHero_III_Leyends_Of_Bitcoin/blob/main/images/example_ui.jpg?raw=true)
 
