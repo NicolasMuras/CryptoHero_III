@@ -1,9 +1,7 @@
 import uuid
 import os
 from django.db import models
-
 from simple_history.models import HistoricalRecords
-
 from apps.base.models import BaseModel
 
 
@@ -29,11 +27,12 @@ class Artist(BaseModel):
     @_history_user.setter
     def _history_user(self, value):
         self.changed_by = value
-
+        
     class Meta:
 
         verbose_name = 'Artista'
         verbose_name_plural = 'Artistas'
+
     def __unicode__(self):
         return self.artist_name
 

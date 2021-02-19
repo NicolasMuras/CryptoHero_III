@@ -1,7 +1,8 @@
 from django.db import models
+from django.conf import settings
 from simple_history.models import HistoricalRecords
 from apps.base.models import BaseModel
-from django.conf import settings
+
 
 class Location(BaseModel):
 
@@ -20,14 +21,6 @@ class Location(BaseModel):
         self.y_coord = round(self.y_coord, 6)
         super(Location, self).save(*args, **kwargs)
 
-    @property
-    def _history_user(self):
-        return self.changed_by
-
-    @_history_user.setter
-    def _history_user(self, value):
-        self.changed_by = value
-
     class Meta:
 
         verbose_name = 'Localización'
@@ -41,7 +34,6 @@ class Pay(BaseModel):
 
     quantity = models.FloatField()
     cryptocurrency = models.CharField('Criptodivisa', max_length=50, blank = False, unique = False, null = False)
-    #location = models.ForeignKey(Location, on_delete=models.CASCADE, verbose_name = 'Coordenadas', null = True)
     location = models.OneToOneField('Location', on_delete=models.CASCADE)
     wallet_address = models.CharField('Wallet', max_length= 32, blank = False, unique = False, null = False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
@@ -51,14 +43,6 @@ class Pay(BaseModel):
     def save(self, *args, **kwargs):
         self.quantity = round(self.quantity, 7)
         super(Pay, self).save(*args, **kwargs)
-
-    @property
-    def _history_user(self):
-        return self.changed_by
-
-    @_history_user.setter
-    def _history_user(self, value):
-        self.changed_by = value
 
     class Meta:
 

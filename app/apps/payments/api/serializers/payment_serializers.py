@@ -14,6 +14,7 @@ class LocationSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
 
         return {
+            'ID': instance.id,
             'Direccion': instance.address,
             'Ciudad': instance.city,
             'Estado': instance.state_name,
